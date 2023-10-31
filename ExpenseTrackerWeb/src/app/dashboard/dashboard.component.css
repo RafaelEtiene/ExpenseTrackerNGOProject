@@ -1,0 +1,33 @@
+.cards {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+
+  .card {
+    display: flex;
+    width: 25rem;
+    height: 10rem;
+    border-radius: 1rem;
+    box-shadow: 5px 5px 2px #726f6f38;
+
+    .card-header {
+      text-align: start;
+      padding: 1rem 2rem;
+    }
+
+    .card-footer-balance {
+      text-align: center;
+      color: rgb(46, 248, 46);
+    }
+
+    .card-footer-expenses {
+      text-align: center;
+      color: rgb(255, 0, 0);
+    }
+
+    .card-body {
+      text-align: center;
+    }
+  }
+}
