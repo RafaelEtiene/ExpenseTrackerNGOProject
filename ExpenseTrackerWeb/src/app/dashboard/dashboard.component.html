@@ -2,10 +2,10 @@
 
 <div class="cards">
   <div class="card">
-    <div class="card-header">
+    <div class="cardHeader">
       <p>Current Balance</p>
     </div>
-    <div class="card-body">
+    <div class="cardBody">
       <h1>$2222,00</h1>
     </div>
     <div class="card-footer-balance">
@@ -13,10 +13,10 @@
     </div>
   </div>
   <div class="card">
-    <div class="card-header">
+    <div class="cardHeader">
       Total Income
     </div>
-    <div class="card-body">
+    <div class="cardBody">
       <h1>$4000,00</h1>
     </div>
     <div class="card-footer-balance">
@@ -24,30 +24,64 @@
     </div>
   </div>
   <div class="card">
-    <div class="card-header">
+    <div class="cardHeader">
       <p>Total Expenses</p>
     </div>
-    <div class="card-body">
+    <div class="cardBody">
       <h1>$3000,00</h1>  
     </div>
     <div class="card-footer-expenses">
       <span><i class="fa fa-arrow-circle-down" aria-hidden="true"></i> 22%</span>
     </div>
   </div>
-  <div class="card-footer">
-    <div class="card-graphic">
-      <div class="card-header">
+  <div class="cardFooter">
+    <div class="cardGraphic">
+      <div class="cardHeader">
         <p>Transactions from the last 12 months</p>
       </div>
       <div class="graphic">
-        <div class="chart-container">
+        <div class="chartContainer">
           <canvas  id="MyChart" >{{ chart }}</canvas>
         </div>
       </div>
     </div>
-    <div class="card-transactions">
-      <div class="card-header">
+    <div class="cardTransactions">
+      <div class="cardHeader">
         <p>Last Transactions</p>
+      </div>
+      <div class="cardBody">
+        <div class="table">
+          <table class="table table-borderless">
+            <thead>
+              <tr>
+                <th scope="col">Description</th>
+                <th scope="col">Date</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table> 
+        </div>
       </div>
     </div>
   </div>

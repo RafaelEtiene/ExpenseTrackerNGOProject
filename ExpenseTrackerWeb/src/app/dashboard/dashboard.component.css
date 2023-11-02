@@ -12,7 +12,7 @@
     border-radius: .8rem;
     box-shadow:  0 4px 8px 0 rgba(78, 78, 78, 0.19), 0 6px 20px 0 rgba(78, 78, 78, 0.19);
 
-    .card-header {
+    .cardHeader {
       text-align: start;
       padding: 1rem 2rem;
     }
@@ -27,12 +27,12 @@
       color: rgb(255, 0, 0);
     }
 
-    .card-body {
+    .cardBody {
       text-align: center;
     }
   }
 }
-.card-footer {
+.cardFooter {
   background-color: #f4f7fa;
   width: 100%;
   display: flex;
@@ -41,7 +41,7 @@
   justify-content: space-between;
   flex-wrap: wrap;
 
-  .card-graphic {
+  .cardGraphic {
     background-color: #fff;
     margin-top: 1rem;
     display: flex;
@@ -51,25 +51,33 @@
     border-radius: .8rem;
     box-shadow:  0 4px 8px 0 rgba(78, 78, 78, 0.19), 0 6px 20px 0 rgba(78, 78, 78, 0.19);
     .graphic{
-      display: block;
+      display: flex;
+      justify-content: center;
       align-items: center;
-      
-      .chart-container {
-        width: 20rem;
+      padding-top: 5rem;
+      #MyChart {
+        width: 37rem;
       }
     }
   }
 
-  .card-transactions {
+  .cardTransactions {
     background-color: #fff;
     margin-top: 1rem;
     display: flex;
+    flex-direction: column;
     width: 40rem;
     height: 35rem;
     border-radius: .8rem;
     box-shadow:  0 5px 8px 0 rgba(78, 78, 78, 0.19), 0 6px 20px 0 rgba(78, 78, 78, 0.19);
+    .cardBody {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-left: 2rem;
+    }
   }
-  .card-header {
+  .cardHeader {
     text-align: start;
     padding: 1rem 2rem;
   }
