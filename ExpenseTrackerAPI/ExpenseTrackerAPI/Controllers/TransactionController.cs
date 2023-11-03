@@ -4,16 +4,16 @@ namespace ExpenseTrackerAPI.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    public class TransactionController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
         {
         "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
     };
 
-        private readonly ILogger<WeatherForecastController> _logger;
+        private readonly OngfinanceContext _context;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public TransactionController(ILogger<TransactionController> logger)
         {
             _logger = logger;
         }
