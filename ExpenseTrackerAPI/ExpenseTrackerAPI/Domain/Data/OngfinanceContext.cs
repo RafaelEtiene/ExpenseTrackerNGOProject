@@ -38,7 +38,7 @@ public partial class OngfinanceContext : DbContext
                 .HasColumnType("int(10) unsigned")
                 .HasColumnName("idTransaction");
             entity.Property(e => e.Amount)
-                .HasPrecision(5, 2)
+                .HasPrecision(8, 2)
                 .HasColumnName("amount");
             entity.Property(e => e.Date)
                 .HasColumnType("datetime")

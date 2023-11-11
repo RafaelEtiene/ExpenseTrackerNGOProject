@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace ExpenseTrackerAPI.Domain.Entities;
+﻿namespace ExpenseTrackerAPI.Domain.Entities;
 
 public class Transaction
 {

@@ -58,6 +58,8 @@ namespace ExpenseTrackerAPI.Services.TransactionService
                         select transaction
                     ).ToList();
 
+                transactionInfoAnalytics.Balance = transactionInfoAnalytics.TotalIncome - transactionInfoAnalytics.TotalExpenses;
+
                 var amountInMonth = new AmountInMonth();
                 CultureInfo cultureInfo = new CultureInfo("en-US");
 

@@ -1,4 +1,8 @@
+using ExpenseTrackerAPI.Domain.Data;
+using ExpenseTrackerAPI.Domain.Mapper;
 using ExpenseTrackerAPI.Services.TransactionService;
+using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +12,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddAutoMapper(typeof(TransactionProfile));
+builder.Services.AddDbContext<OngfinanceContext>();
 builder.Services.AddScoped<ITransactionService, TransactionService>();
 
 var app = builder.Build();
