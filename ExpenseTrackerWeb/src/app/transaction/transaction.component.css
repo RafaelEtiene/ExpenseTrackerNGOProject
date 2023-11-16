@@ -1,0 +1,23 @@
+.form {
+  padding: 2rem 0 2rem 0;
+}
+
+.btnTable {
+  padding-left: .3rem;
+  cursor: pointer;
+}
+
+.title {
+  font-weight: 900;
+}
+
+.cardBody {
+  padding-top: 1rem;
+  .btnAdd {
+    font-size: .8rem;
+    width: auto;
+  }
+  .table {
+    padding-top: 1rem;
+  }
+}
