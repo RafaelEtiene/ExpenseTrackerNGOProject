@@ -6,6 +6,7 @@ namespace ExpenseTrackerAPI.Services.TransactionService
     public interface ITransactionService
     {
         Task<List<Transaction>> GetAllTransactions();
+        Task<Transaction> GetTransactionById(int idTransaction);
 
         Task InsertTransaction(TransactionViewModel transaction);
 

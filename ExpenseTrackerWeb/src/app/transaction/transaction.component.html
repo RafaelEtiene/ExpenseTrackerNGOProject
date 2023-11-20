@@ -1,35 +1,7 @@
 <h2>Transaction</h2>
-<div class="form" *ngIf="showTemplate">
-  <h5>Add new transaction</h5>
-  <div class="form-row">
-    <div class="form-group col-md-4">
-      <label>Description</label>
-      <input type="text" class="form-control" [(ngModel)]="transaction.description">
-    </div>
-    <div class="form-group col-md-4">
-      <label>Amount</label>
-      <input type="number" min="0.01" step="0.01" max="2500" value="25.67" class="form-control" [(ngModel)]="transaction.amount"/>
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-4">
-      <label>Type</label>
-      <input type="number" class="form-control" [(ngModel)]="transaction.type"/>
-    </div> 
-    <div class="form-group col-md-4">
-      <label>Date</label>
-      <input type="datetime-local" class="form-control" [(ngModel)]="transaction.date"/>
-    </div> 
-  </div>
-  <div class="btnForm">
-    <button type="submit" class="btn btn-primary">Save</button>
-    <button type="submit" class="btn btn-danger" style="margin-left: 5px;" (click)="CloseTemplate()">Cancel</button>
-  </div>
-</div>
-
 <div class="cardBody" *ngIf="!showTemplate">
   <h5 class="title">Transactions</h5>
-  <button class="btn btn-info btnAdd" (click)="ShowAddTemplate()">New Transaction</button>
+  <button class="btn btn-info btnAdd" (click)="showAddTemplate()">New Transaction</button>
   <div class="table">
     <table class="table table-borderless">
       <thead>
@@ -47,13 +19,44 @@
           <td>{{transaction.amount}}</td>
           <td>{{transaction.date}}</td>
           <td>
-            <a class="btnTable"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+            <a class="btnTable"><i class="fa fa-pencil" aria-hidden="true" (click)="showUpdateTemplate(transaction.idTransaction)"></i></a>
           </td>
           <td>
-            <a class="btnTable" style="padding-left: .8rem;"><i class="fa fa-trash" aria-hidden="true"></i></a>
+            <a class="btnTable" style="padding-left: .8rem;"><i class="fa fa-trash" aria-hidden="true" (click)="removeTransaction(transaction.idTransaction)"></i></a>
           </td>
         </tr>
       </tbody>
     </table> 
+  </div>
+</div>
+
+<div class="form" *ngIf="showTemplate">
+  <h5>Add new transaction</h5>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label>Description</label>
+      <input type="text" class="form-control" [(ngModel)]="transaction.description">
+    </div>
+    <div class="form-group col-md-4">
+      <label>Amount</label>
+      <input type="number" class="form-control" [(ngModel)]="transaction.amount" />
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label>Type</label>
+      <select class="form-control" [(ngModel)]="transaction.type">
+        <option value="1">Expense</option>
+        <option value="2">Income</option>
+      </select>
+    </div> 
+    <div class="form-group col-md-4">
+      <label>Date</label>
+      <input type="datetime-local" class="form-control" [(ngModel)]="transaction.date"/>
+    </div> 
+  </div>
+  <div class="btnForm">
+    <button type="submit" class="btn btn-primary" (click)="insertNewTransaction()">Save</button>
+    <button type="submit" class="btn btn-danger" style="margin-left: 5px;" (click)="closeTemplate()">Cancel</button>
   </div>
 </div>

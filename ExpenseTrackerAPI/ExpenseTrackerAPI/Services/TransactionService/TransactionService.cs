@@ -33,6 +33,18 @@ namespace ExpenseTrackerAPI.Services.TransactionService
             }
         }
 
+        public async Task<Transaction> GetTransactionById(int idTransaction)
+        {
+            try
+            {
+                return await _context.Transactions.Where(t => t.IdTransaction == idTransaction).SingleAsync();
+            }
+            catch (Exception e)
+            {
+                throw new Exception("An error occurred while searched the registers." + e.Message);
+            }
+        }
+
         public async Task<TransactionInfoAnalytics> GetTransactionInfoAnalytics()
         {
             try
@@ -60,11 +72,11 @@ namespace ExpenseTrackerAPI.Services.TransactionService
 
                 transactionInfoAnalytics.Balance = transactionInfoAnalytics.TotalIncome - transactionInfoAnalytics.TotalExpenses;
 
-                var amountInMonth = new AmountInMonth();
                 CultureInfo cultureInfo = new CultureInfo("en-US");
 
                 for (int i = 1; i <= 12; i++)
                 {
+                    var amountInMonth = new AmountInMonth();
                     amountInMonth.Expenses = transactions.Where(t => t.Date.Month == i && t.Type == (int)TransactionType.Expense).Sum(s => s.Amount);
                     amountInMonth.Income = transactions.Where(t => t.Date.Month == i && t.Type == (int)TransactionType.Income).Sum(s => s.Amount);
                     amountInMonth.Month = cultureInfo.DateTimeFormat.GetMonthName(i);

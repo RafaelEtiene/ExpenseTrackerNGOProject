@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TransactionViewModel } from '../interfaces/transactionViewModel';
 import { TransactionService } from 'src/api/transaction.service';
-import { CurrencyPipe } from '@angular/common';
-
 
 @Component({
   selector: 'app-transaction',
@@ -11,23 +9,30 @@ import { CurrencyPipe } from '@angular/common';
 })
 export class TransactionComponent implements OnInit {
   ngOnInit(): void {
-    this.GetAllTransactions();
+    this.getAllTransactions();
   }
-  constructor(private transactionSerivce: TransactionService, private currencyPipe: CurrencyPipe) {}
+  constructor(private transactionService: TransactionService) {}
 
   transactions: TransactionViewModel[] = [];
   transaction: TransactionViewModel = null!;
   showTemplate: boolean = false; 
-
-  public GetAllTransactions() {
-   this.transactionSerivce.GetAllTransactions()
+  types = [{
+      idType: 1,
+      name: 'Expense'
+    },
+    {
+      idType: 2,
+      name: 'Income'
+    }];
+  
+  public getAllTransactions() {
+   this.transactionService.GetAllTransactions()
     .subscribe(r => {
       this.transactions = r;
     });
   }
 
-  public ShowAddTemplate() {
-    this.showTemplate = true;
+  public showAddTemplate() {
     this.transaction = {
       idTransaction : 0,
       description: '',
@@ -35,9 +40,40 @@ export class TransactionComponent implements OnInit {
       date: new Date(),
       type: 0
     };
+    this.showTemplate = true;
   }
 
-  public CloseTemplate() {
+  public showUpdateTemplate(idTransaction: number) {
+    this.transactionService.GetTransactionById(idTransaction)
+    .subscribe(r => {
+      this.transaction = r;
+    });
+
+    this.showTemplate = true;
+  }
+
+  public closeTemplate() {
     this.showTemplate = false;
   }
+
+  public insertNewTransaction() {
+    debugger
+    if(this.transaction.idTransaction == 0){
+      this.transactionService.InsertTransaction(this.transaction)
+      .subscribe();
+    }
+    else{
+      this.transactionService.UpdateTransaction(this.transaction)
+        .subscribe();
+    }
+    location.reload();
+  }
+
+  public removeTransaction(idTransaction: number) {
+    this.transactionService.DeleteTransaction(idTransaction)
+      .subscribe();
+
+    location.reload();
+  }
 }
+

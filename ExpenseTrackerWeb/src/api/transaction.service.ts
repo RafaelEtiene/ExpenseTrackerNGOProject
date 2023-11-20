@@ -17,12 +17,16 @@ export class TransactionService {
     return this.httpClient.get<TransactionViewModel[]>(`${this.basePath}/Transaction/GetAllTransactions`);
   }
 
+  public GetTransactionById(idTransaction: number) : Observable<TransactionViewModel> {
+    return this.httpClient.get<TransactionViewModel>(`${this.basePath}/Transaction/GetTransactionById/${idTransaction}`);
+  }
+
   public GetTransactionInfoAnalytics() : Observable<TransactionInfoAnalytics> {
     return this.httpClient.get<TransactionInfoAnalytics>(`${this.basePath}/Transaction/GetTransactionInfoAnalytics`);
   }
 
   public InsertTransaction(transaction: TransactionViewModel) : Observable<any> {
-    return this.httpClient.post<any>(`${this.basePath}/Transaction/GetTransactionInfoAnalytics`, transaction);
+    return this.httpClient.post<any>(`${this.basePath}/Transaction/InsertTransaction`, transaction);
   }
 
   public UpdateTransaction(transaction: TransactionViewModel) : Observable<any> {

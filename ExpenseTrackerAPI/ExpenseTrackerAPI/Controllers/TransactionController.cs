@@ -31,6 +31,21 @@ namespace ExpenseTrackerAPI.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("GetTransactionById/{idTransaction}")]
+        public async Task<IActionResult> GetTransactionById(int idTransaction)
+        {
+            try
+            {
+                var result = await _service.GetTransactionById(idTransaction);
+                return Ok(result);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
         [HttpPost]
         [Route("InsertTransaction")]
         public async Task<IActionResult> InsertTransaction([FromBody]TransactionViewModel request)

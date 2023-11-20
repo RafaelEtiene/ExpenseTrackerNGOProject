@@ -10,7 +10,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { TransactionComponent } from './transaction/transaction.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { CurrencyPipe } from '@angular/common';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -25,9 +25,10 @@ import { CurrencyPipe } from '@angular/common';
     AppRoutingModule,
     NgChartsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgSelectModule
   ],
-  providers: [CurrencyPipe],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
