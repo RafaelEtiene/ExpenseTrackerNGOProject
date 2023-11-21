@@ -8,8 +8,8 @@ export interface TransactionInfoAnalytics {
   lastTransactions: TransactionViewModel[]
 }
 
-interface AmountInMonth {
+export interface AmountInMonth {
   expenses: number,
-  income: number,
+  incomes: number,
   month: string
 }

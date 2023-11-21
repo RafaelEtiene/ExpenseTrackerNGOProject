@@ -77,11 +77,14 @@ namespace ExpenseTrackerAPI.Services.TransactionService
                 for (int i = 1; i <= 12; i++)
                 {
                     var amountInMonth = new AmountInMonth();
+
                     amountInMonth.Expenses = transactions.Where(t => t.Date.Month == i && t.Type == (int)TransactionType.Expense).Sum(s => s.Amount);
-                    amountInMonth.Income = transactions.Where(t => t.Date.Month == i && t.Type == (int)TransactionType.Income).Sum(s => s.Amount);
+                    amountInMonth.Incomes = transactions.Where(t => t.Date.Month == i && t.Type == (int)TransactionType.Income).Sum(s => s.Amount);
                     amountInMonth.Month = cultureInfo.DateTimeFormat.GetMonthName(i);
 
-                    transactionInfoAnalytics.AmountInMonths.Append(amountInMonth);
+
+
+                    transactionInfoAnalytics.AmountInMonths.Add(amountInMonth);
                 }
 
                 return transactionInfoAnalytics;
