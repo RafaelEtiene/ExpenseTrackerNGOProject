@@ -6,7 +6,7 @@
       <p>Current Balance</p>
     </div>
     <div class="cardBody">
-      <h1>$2222,00</h1>
+      <h1>{{transactionsInfoAnalytics.balance | currency: 'BRL'}}</h1>
     </div>
     <div class="card-footer-balance">
       <span><i class="fa fa-arrow-circle-up" aria-hidden="true"></i> 22%</span>
@@ -17,7 +17,7 @@
       Total Income
     </div>
     <div class="cardBody">
-      <h1>$4000,00</h1>
+      <h1>{{transactionsInfoAnalytics.totalIncome | currency: 'BRL'}}</h1>
     </div>
     <div class="card-footer-balance">
       <span><i class="fa fa-arrow-circle-up" aria-hidden="true"></i> 10%</span>
@@ -28,7 +28,7 @@
       <p>Total Expenses</p>
     </div>
     <div class="cardBody">
-      <h1>$3000,00</h1>  
+      <h1>{{transactionsInfoAnalytics.totalExpenses | currency: 'BRL'}}</h1>  
     </div>
     <div class="card-footer-expenses">
       <span><i class="fa fa-arrow-circle-down" aria-hidden="true"></i> 22%</span>
@@ -61,10 +61,10 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let transaction of transactions">
+              <tr *ngFor="let transaction of transactionsInfoAnalytics.lastTransactions">
                 <th>{{transaction.description}}</th>
                 <td>{{transaction.date | date: 'dd/MM/yyyy'}}</td>
-                <td>{{transaction.amount}}</td>
+                <td [ngStyle]="{'color':transaction.type == 1 ? 'rgb(46, 248, 46)' : 'rgb(218, 0, 0)'}">{{transaction.amount | currency: 'BRL'}}</td>
                 <td>{{transaction.type == 1 ? 'Expense' : 'Income'}}</td>
               </tr>
             </tbody>
